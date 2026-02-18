@@ -1,0 +1,102 @@
+[
+  {
+    "id": "people_01",
+    "category": "people_management",
+    "prompt": "Tell me about a time you managed an underperforming engineer."
+  },
+  {
+    "id": "people_02",
+    "category": "people_management",
+    "prompt": "Describe a difficult feedback conversation and how you handled it."
+  },
+  {
+    "id": "people_03",
+    "category": "people_management",
+    "prompt": "Tell me about a time you coached someone to significantly improve performance."
+  },
+  {
+    "id": "people_04",
+    "category": "people_management",
+    "prompt": "Describe a conflict between two team members and how you resolved it."
+  },
+  {
+    "id": "people_05",
+    "category": "people_management",
+    "prompt": "Tell me about a time you had to make a difficult people decision."
+  },
+  {
+    "id": "scope_01",
+    "category": "scope_and_impact",
+    "prompt": "Describe a project where scope changed significantly mid-execution."
+  },
+  {
+    "id": "scope_02",
+    "category": "scope_and_impact",
+    "prompt": "Tell me about a time you had to prioritize between competing initiatives."
+  },
+  {
+    "id": "scope_03",
+    "category": "scope_and_impact",
+    "prompt": "Share an example where you delivered impact with constrained resources."
+  },
+  {
+    "id": "scope_04",
+    "category": "scope_and_impact",
+    "prompt": "Tell me about a time you influenced cross-functional stakeholders to align on a roadmap."
+  },
+  {
+    "id": "scope_05",
+    "category": "scope_and_impact",
+    "prompt": "Describe a situation where your team missed goals and how you responded."
+  },
+  {
+    "id": "retro_01",
+    "category": "project_retrospective",
+    "prompt": "Walk me through a project retrospective that changed how your team works."
+  },
+  {
+    "id": "retro_02",
+    "category": "project_retrospective",
+    "prompt": "Tell me about a production incident and what leadership actions you took after."
+  },
+  {
+    "id": "retro_03",
+    "category": "project_retrospective",
+    "prompt": "Describe a technical decision that had unexpected consequences and what you learned."
+  },
+  {
+    "id": "retro_04",
+    "category": "project_retrospective",
+    "prompt": "Tell me about a time you had to reverse a strategy decision."
+  },
+  {
+    "id": "retro_05",
+    "category": "project_retrospective",
+    "prompt": "Give an example of a project where communication breakdown hurt delivery."
+  },
+  {
+    "id": "lead_01",
+    "category": "leadership",
+    "prompt": "Tell me about a time you led without direct authority."
+  },
+  {
+    "id": "lead_02",
+    "category": "leadership",
+    "prompt": "Describe a decision where you balanced speed vs quality."
+  },
+  {
+    "id": "lead_03",
+    "category": "leadership",
+    "prompt": "Tell me about a time you disagreed with senior leadership and what happened."
+  },
+  {
+    "id": "lead_04",
+    "category": "leadership",
+    "prompt": "Share an example where you built trust with a skeptical stakeholder."
+  },
+  {
+    "id": "lead_05",
+    "category": "leadership",
+    "prompt": "Describe a high-stakes decision you made with incomplete information."
+  }
+]
