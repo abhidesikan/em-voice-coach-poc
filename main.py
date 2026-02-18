@@ -4,12 +4,44 @@ import numpy as np
 import os
 from openai import OpenAI
 
-# Load Whisper model (base is more accurate and still fast on M3)
-model = whisper.load_model("base")
+# Load Whisper model (small improves accuracy for interview terminology)
+model = whisper.load_model("small")
 
-def transcribe_audio(file_path):
-    result = model.transcribe(file_path)
-    return result["text"], result["segments"]
+def _normalize_transcript_terms(text: str) -> str:
+    replacements = {
+        "entrepreneur": "underperformer",
+        "entropy performer": "underperformer",
+        "under sponsor": "underperformer",
+        "focus improvement plan": "performance improvement plan",
+        "111s": "1:1s",
+        "one one ones": "1:1s",
+    }
+    out = text
+    for src, dst in replacements.items():
+        out = out.replace(src, dst)
+        out = out.replace(src.title(), dst)
+    return out
+
+
+def transcribe_audio(file_path, prompt=None):
+    domain_prompt = prompt or (
+        "Engineering Manager interview. Terms may include: underperformer, "
+        "performance improvement plan, 1:1s, stakeholder, roadmap, retrospective, impact metrics."
+    )
+    result = model.transcribe(
+        file_path,
+        initial_prompt=domain_prompt,
+        temperature=0,
+        condition_on_previous_text=True,
+    )
+
+    text = _normalize_transcript_terms(result["text"])
+    segments = result["segments"]
+    for s in segments:
+        if "text" in s and isinstance(s["text"], str):
+            s["text"] = _normalize_transcript_terms(s["text"])
+
+    return text, segments
 
 def analyze_energy(file_path):
     y, sr = librosa.load(file_path, sr=None)
@@ -49,12 +81,12 @@ def analyze_energy(file_path):
         monotone_warning = "✅ Excellent intonation – expressive and confident!"
     
     return {
-        "overall_score": overall_score,
+        "overall_score": float(overall_score),
         "volume_label": volume_label,
         "monotone_warning": monotone_warning,
-        "debug_rms": round(mean_rms, 4),
-        "debug_pitch_std": round(pitch_std, 1),
-        "debug_pitch_mean": round(pitch_mean, 1)
+        "debug_rms": float(round(mean_rms, 4)),
+        "debug_pitch_std": float(round(pitch_std, 1)),
+        "debug_pitch_mean": float(round(pitch_mean, 1)),
     }
 
 def analyze_segments(file_path, segments):
